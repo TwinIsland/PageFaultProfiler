@@ -1,10 +1,7 @@
 # PageFaultProfiler
 The module's primary purpose is to profile and monitor specific processes, tracking their minor/major page faults and CPU utilization.
 
-
-### Functionalities
-
-1. **Process Registration/Unregistration (`reg_pid`, `unreg_pid`):**
+**Process Registration/Unregistration (`reg_pid`, `unreg_pid`):**
    - Processes are registered/unregistered for monitoring via the `/proc` file system interface.
    - Upon registration, a `work_block` is allocated and added to `work_list`.
    - Unregistration removes the `work_block` from the list and frees memory.
@@ -20,14 +17,6 @@ The module's primary purpose is to profile and monitor specific processes, track
 4. **Cleanup (`mp3_exit`):**
    - Ensures proper resource deallocation and cleanup when the module is unloaded.
 
-### Special Implementations
-
-- **Concurrent List Access:**
-  - Mutex locks are used to synchronize access to `work_list`, ensuring thread safety.
-- **Efficient Memory Usage:**
-  - `vzalloc` is used for buffer allocation to efficiently handle large, sparse data.
-- **Buffer Management:**
-  - A circular buffer implementation prevents memory overflow and ensures continuous data collection.
 
 ## Case Study Analysis
 The ploting implemented in [drawing.py](drawing.py), testing script in [test.sh](test.sh)
