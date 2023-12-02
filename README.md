@@ -1,26 +1,6 @@
-# MP3-PageFaultProfiler
+# PageFaultProfiler
+The module's primary purpose is to profile and monitor specific processes, tracking their minor/major page faults and CPU utilization.
 
-
-This README outlines the implementation of a Linux kernel module developed for MP3. The module's primary purpose is to profile and monitor specific processes, tracking their minor/major page faults and CPU utilization.
-
-## Implementation Details
-
-### Key Components
-
-1. **Data Structures:**
-   - `work_block`: Represents a process being monitored, including its PID.
-   - `sample_data_t`: Stores profiling data such as jiffies, minor/major faults, and CPU usage.
-
-2. **Global Variables:**
-   - `buffer`: A circular buffer to store profiling data.
-   - `buffer_index`: Tracks the current position in the buffer.
-   - `work_list`: A linked list to keep track of monitored processes.
-   - `profiler_work`: A delayed work item for periodic profiling.
-   - `profiler_wq`: A workqueue to schedule `profiler_work`.
-
-3. **Kernel Objects:**
-   - `/proc` entries: Created for interfacing with user-space, enabling process registration and unregistration.
-   - Character device: For memory mapping the buffer to user-space.
 
 ### Functionalities
 
