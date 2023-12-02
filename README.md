@@ -6,18 +6,6 @@ The module's primary purpose is to profile and monitor specific processes, track
    - Upon registration, a `work_block` is allocated and added to `work_list`.
    - Unregistration removes the `work_block` from the list and frees memory.
 
-2. **Profiling (`profiler_work_handler`):**
-   - Periodically executed to collect data for each registered process.
-   - Accumulates minor/major faults and CPU usage.
-   - Data is stored in `buffer`.
-
-3. **Memory Mapping (`device_mmap`):**
-   - Allows user-space applications to map the profiling buffer into their address space for direct access.
-
-4. **Cleanup (`mp3_exit`):**
-   - Ensures proper resource deallocation and cleanup when the module is unloaded.
-
-
 ## Case Study Analysis
 The ploting implemented in [drawing.py](drawing.py), testing script in [test.sh](test.sh)
 
